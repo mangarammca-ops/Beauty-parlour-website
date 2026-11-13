@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxe Beauty Parlour | Beauty. Elegance. You.</title>
+  <meta name="description" content="Luxe Beauty Parlour — premium beauty, bridal makeup, hair, skin and spa services. Book your appointment online.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --black:#100d0a; --black2:#1b1510; --gold:#d6ad62; --gold-light:#f2dca8;
+      --cream:#fffaf1; --muted:#b9afa2; --white:#fff; --line:rgba(214,173,98,.25);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--cream);line-height:1.6}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    button,input,select,textarea{font:inherit}
+    .container{width:min(1160px,92%);margin:auto}
+    .topbar{background:#080706;color:#d8cbb6;font-size:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+    .topbar .container{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .topbar span{margin-right:18px}
+    .navbar{position:sticky;top:0;z-index:99;background:rgba(16,13,10,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav-inner{height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{display:flex;align-items:center;gap:10px;min-width:205px}
+    .logo-mark{font-size:34px;color:var(--gold)}
+    .logo strong{display:block;font-family:'Playfair Display',serif;font-size:25px;line-height:1;color:var(--gold-light);letter-spacing:1px}
+    .logo small{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#c8b99f}
+    .nav-links{display:flex;align-items:center;gap:25px;font-size:13px;color:#e8dfd2}
+    .nav-links a:hover{color:var(--gold)}
+    .nav-actions{display:flex;gap:10px;align-items:center}
+    .menu-toggle{display:none;background:none;border:1px solid var(--line);color:var(--gold);padding:8px 12px;border-radius:8px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 23px;border-radius:999px;background:var(--gold);color:#17100a;font-weight:700;border:1px solid var(--gold);transition:.25s;cursor:pointer}
+    .btn:hover{background:var(--gold-light);transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:var(--gold);border-color:var(--gold)}
+    .btn-outline:hover{background:var(--gold);color:#15100a}
+    .btn-small{padding:10px 16px;font-size:12px}
+    .hero{position:relative;overflow:hidden;min-height:640px;display:flex;align-items:center;background:linear-gradient(90deg,rgba(12,9,7,.96) 0%,rgba(12,9,7,.83) 45%,rgba(12,9,7,.2) 100%),url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1800&q=85') center/cover}
+    .hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 40%,rgba(214,173,98,.13),transparent 35%);pointer-events:none}
+    .hero-content{position:relative;z-index:2;max-width:650px;padding:85px 0}
+    .eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:4px;font-size:11px;font-weight:700;margin-bottom:18px}
+    h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;line-height:1.15}
+    h1{font-size:clamp(42px,6vw,76px);margin-bottom:22px}
+    h1 em,h2 em{color:var(--gold);font-weight:500}
+    .hero p{max-width:520px;color:#ded4c6;font-size:16px;margin-bottom:30px}
+    .hero-buttons{display:flex;gap:13px;flex-wrap:wrap}
+    .hero-note{margin-top:42px;display:flex;gap:25px;flex-wrap:wrap;color:#e5d7c3;font-size:12px}
+    .hero-note b{color:var(--gold);font-size:18px;display:block}
+    .hero-note span{border-left:1px solid var(--line);padding-left:18px}
+    .section{padding:90px 0}
+    .section-light{background:var(--cream);color:var(--black)}
+    .section-head{text-align:center;max-width:650px;margin:0 auto 45px}
+    .section-head .eyebrow{margin-bottom:12px}
+    h2{font-size:clamp(32px,4vw,48px);margin-bottom:15px}
+    .section-head p{color:#8b7e70}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service-card{background:#1b1510;border:1px solid var(--line);padding:28px;border-radius:15px;transition:.25s}
+    .service-card-body{background:linear-gradient(180deg,#21170f,#120e0a)}
+    .service-photo img,.package-photo img,.gallery-grid img{background:#2b2117}
+    .booking-info{background:linear-gradient(135deg,rgba(20,14,9,.94),rgba(20,14,9,.82)),url('https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=1000&q=85') center/cover}
+    .price-card{overflow:hidden}
+    .gallery-grid img{box-shadow:0 8px 25px rgba(0,0,0,.12)}
+
+    .service-card{padding:0;overflow:hidden}
+    .service-photo{height:175px;position:relative;overflow:hidden}
+    .service-photo img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+    .service-card:hover .service-photo img{transform:scale(1.07)}
+    .service-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(16,13,10,.62),transparent 65%)}
+    .service-card-body{padding:22px 25px 25px}
+    .service-photo .photo-label{position:absolute;left:18px;bottom:14px;z-index:2;color:#f2dca8;font-family:'Playfair Display',serif;font-size:20px}
+    .package-photo{height:150px;overflow:hidden;border-radius:10px;margin:-8px -8px 18px}
+    .package-photo img{width:100%;height:100%;object-fit:cover}
+    .gallery-grid img{border:1px solid rgba(214,173,98,.25)}
+    .about-img img{filter:saturate(.82)}
+
+    .service-card:hover{transform:translateY(-5px);border-color:var(--gold)}
+    .service-icon{font-size:28px;color:var(--gold);margin-bottom:16px}
+    .service-card h3{font-size:23px;margin-bottom:10px;color:var(--gold-light)}
+    .service-card p{color:#bdb1a2;font-size:13px;margin-bottom:18px}
+    .service-bottom{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:15px;color:var(--gold)}
+    .service-bottom small{color:#bdb1a2}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .about-img{height:500px;border-radius:18px;overflow:hidden;position:relative}
+    .about-img img{width:100%;height:100%;object-fit:cover}
+    .about-img .image-label{position:absolute;bottom:20px;left:20px;background:rgba(16,13,10,.88);padding:18px 24px;border:1px solid var(--gold);border-radius:12px}
+    .about-img .image-label strong{font-family:'Playfair Display';font-size:28px;color:var(--gold)}
+    .about-copy p{color:#bdb1a2;margin:18px 0}
+    .checks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:25px 0;color:#e7dccb;font-size:13px}
+    .checks span:before{content:"✦";color:var(--gold);margin-right:9px}
+    .offer{background:linear-gradient(100deg,#21170e,#0d0a08);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .offer-inner{display:flex;align-items:center;justify-content:space-between;gap:25px}
+    .offer h2{margin:8px 0}
+    .offer p{color:#c6b7a4}
+    .offer-tag{font-family:'Playfair Display';font-size:62px;color:var(--gold);white-space:nowrap}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .price-card{border:1px solid #e7d9c2;border-radius:14px;padding:25px;background:#fff}
+    .price-card.featured{background:#1a130d;color:#fff;border:1px solid var(--gold);transform:translateY(-8px)}
+    .price-card h3{font-size:24px;margin-bottom:7px}
+    .price-card p{font-size:13px;color:#8a7d6d;margin-bottom:20px}
+    .price{font-family:'Playfair Display';font-size:34px;color:#b78935;margin-bottom:18px}
+    .price small{font-family:'DM Sans';font-size:12px;color:#8a7d6d}
+    .price-list{list-style:none;margin-bottom:25px;font-size:13px;color:#817466}
+    .featured .price-list,.featured p{color:#c5b7a5}
+    .price-list li{padding:8px 0;border-bottom:1px solid rgba(120,100,75,.15)}
+    .price-list li:before{content:"✓";color:#b78935;margin-right:8px}
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .gallery-grid img{height:240px;width:100%;object-fit:cover;border-radius:12px;filter:saturate(.8);transition:.3s}
+    .gallery-grid img:hover{filter:saturate(1);transform:scale(1.02)}
+    .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .review{padding:26px;border:1px solid var(--line);border-radius:14px;background:#1b1510}
+    .stars{color:var(--gold);letter-spacing:3px;margin-bottom:12px}
+    .review p{color:#c5b8a7;font-size:14px;margin-bottom:18px}
+    .review strong{color:var(--gold-light)}
+    .booking-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:35px}
+    .booking-info{background:#1a130d;padding:30px;border:1px solid var(--line);border-radius:16px}
+    .booking-info p{color:#bdb1a2;margin:12px 0 24px}
+    .info-line{padding:14px 0;border-top:1px solid var(--line);font-size:13px}
+    .info-line b{color:var(--gold);display:block;margin-bottom:3px}
+    .booking-form{background:#fff;color:#20170f;border-radius:16px;padding:30px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    .field{display:flex;flex-direction:column;gap:7px}
+    .field.full{grid-column:1/-1}
+    label{font-size:12px;font-weight:700;color:#5b4a38}
+    input,select,textarea{width:100%;padding:13px;border:1px solid #e5d9c9;border-radius:8px;background:#fffaf4;color:#241a11;outline:none}
+    input:focus,select:focus,textarea:focus{border-color:#b78935}
+    textarea{resize:vertical;min-height:100px}
+    .booking-form .btn{width:100%;margin-top:18px}
+    .faq-list{max-width:800px;margin:auto}
+    details{border-bottom:1px solid var(--line);padding:18px 0}
+    summary{cursor:pointer;color:var(--gold-light);font-weight:600}
+    details p{color:#bdb1a2;font-size:14px;padding-top:12px}
+    .contact-strip{background:#d6ad62;color:#1b130a;padding:20px 0}
+    .contact-strip .container{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+    footer{padding:55px 0 25px;background:#080706}
+    .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px}
+    footer p,footer a{color:#a99b88;font-size:13px}
+    footer h4{color:var(--gold);margin-bottom:15px}
+    footer a{display:block;margin:8px 0}
+    footer a:hover{color:var(--gold)}
+    .copyright{border-top:1px solid var(--line);margin-top:35px;padding-top:20px;color:#7d7162;font-size:12px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    .toast{position:fixed;right:20px;bottom:20px;background:#f1dba5;color:#1a130b;padding:14px 20px;border-radius:10px;box-shadow:0 10px 35px #0005;z-index:999;display:none;font-size:14px}
+    @media(max-width:900px){
+      .nav-links{display:none;position:absolute;top:82px;left:0;right:0;background:#100d0a;padding:22px;flex-direction:column;border-bottom:1px solid var(--line)}
+      .nav-links.show{display:flex}.menu-toggle{display:block}.nav-actions .btn{display:none}
+      .services-grid,.pricing-grid,.reviews-grid{grid-template-columns:repeat(2,1fr)}
+      .about-grid,.booking-grid{grid-template-columns:1fr}
+      .about-img{height:400px}.gallery-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:560px){
+      .hero{min-height:580px;background-position:65% center}
+      .hero-content{padding:65px 0}.hero p{font-size:14px}
+      .services-grid,.pricing-grid,.reviews-grid{grid-template-columns:1fr}
+      .offer-inner{display:block}.offer-tag{font-size:45px;margin:10px 0}
+      .gallery-grid img{height:180px}.form-grid{grid-template-columns:1fr}
+      .field.full{grid-column:auto}.footer-grid{grid-template-columns:1fr}
+      .checks{grid-template-columns:1fr}
+      .nav-inner{height:72px}.nav-links{top:72px}
+    }
+  </style>
+<!-- Photos are loaded from Unsplash; an internet connection is required to display them. -->\n</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <div><span>📍 Your City, India</span><span>☎ +91 98765 43210</span><span>✉ hello@luxebeauty.in</span></div>
+      <div>Open daily · 10:00 AM – 8:00 PM</div>
+    </div>
+  </div>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="logo" href="#home"><span class="logo-mark">✧</span><span><strong>LUXE</strong><small>BEAUTY PARLOUR</small></span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a>
+        <a href="#packages">Packages</a><a href="#gallery">Gallery</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions"><a class="btn btn-small" href="#booking">Book Appointment</a><button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">Luxury Beauty · Personal Care · Wellness</div>
+          <h1>Unveil Your<br><em>Natural Beauty</em></h1>
+          <p>Expert beauty care, thoughtful details and a relaxing experience—created to help you look radiant and feel confident, every day.</p>
+          <div class="hero-buttons"><a class="btn" href="#booking">Book Your Visit ↗</a><a class="btn btn-outline" href="#services">Explore Services</a></div>
+          <div class="hero-note"><span><b>10+</b> Years of Experience</span><span><b>2,500+</b> Happy Clients</span><span><b>100%</b> Care & Comfort</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="services">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Our Signature Services</div><h2>Beauty care, <em>made personal</em></h2><p>From everyday grooming to your most special day, find the service that makes you feel your best.</p></div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-photo"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=85" alt="Hair Styling & Care" loading="lazy"><span class="photo-label">Hair Care</span></div>
+            <div class="service-card-body"><div class="service-icon">✦</div><h3>Hair Styling & Care</h3><p>Haircut, blow-dry, hair spa, coloring and styling tailored to your look.</p><div class="service-bottom"><small>Starting from</small><strong>₹499</strong></div></div>
+          </article>
+          <article class="service-card">
+            <div class="service-photo"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=85" alt="Skin Care & Facials" loading="lazy"><span class="photo-label">Skin & Facials</span></div>
+            <div class="service-card-body"><div class="service-icon">✦</div><h3>Skin Care & Facials</h3><p>Glow facials, clean-ups, hydration and skin treatments for a refreshed look.</p><div class="service-bottom"><small>Starting from</small><strong>₹699</strong></div></div>
+          </article>
+          <article class="service-card">
+            <div class="service-photo"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=900&q=85" alt="Bridal Makeup" loading="lazy"><span class="photo-label">Bridal Makeup</span></div>
+            <div class="service-card-body"><div class="service-icon">✦</div><h3>Bridal Makeup</h3><p>Bridal, engagement and party makeup with a look designed around you.</p><div class="service-bottom"><small>Starting from</small><strong>₹4,999</strong></div></div>
+          </article>
+          <article class="service-card">
+            <div class="service-photo"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=85" alt="Nails & Manicure" loading="lazy"><span class="photo-label">Nail Art</span></div>
+            <div class="service-card-body"><div class="service-icon">✦</div><h3>Nails & Manicure</h3><p>Manicure, pedicure, nail art and polish for beautifully finished hands and feet.</p><div class="service-bottom"><small>Starting from</small><strong>₹399</strong></div></div>
+          </article>
+          <article class="service-card">
+            <div class="service-photo"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbehef?auto=format&fit=crop&w=900&q=85" alt="Spa & Wellness" loading="lazy"><span class="photo-label">Spa & Wellness</span></div>
+            <div class="service-card-body"><div class="service-icon">✦</div><h3>Spa & Wellness</h3><p>Relaxing body spa, head massage and wellness rituals to unwind.</p><div class="service-bottom"><small>Starting from</small><strong>₹999</strong></div></div>
+          </article>
+          <article class="service-card">
+            <div class="service-photo"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&q=85" alt="Waxing & Grooming" loading="lazy"><span class="photo-label">Beauty Grooming</span></div>
+            <div class="service-card-body"><div class="service-icon">✦</div><h3>Waxing & Grooming</h3><p>Gentle waxing, threading, brows and essential grooming services.</p><div class="service-bottom"><small>Starting from</small><strong>₹199</strong></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-img"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=85" alt="Beauty professional working in a salon"><div class="image-label"><strong>Luxe Experience</strong><br><small>Where beauty meets care</small></div></div>
+        <div class="about-copy"><div class="eyebrow">Welcome to Luxe</div><h2>Your beauty deserves<br><em>the best care.</em></h2><p>We believe beauty is personal. Our friendly professionals take time to understand your needs and create a comfortable, welcoming experience with every visit.</p><p>Enjoy thoughtful service, hygienic tools, quality products and a calm space made for you to relax and recharge.</p><div class="checks"><span>Experienced professionals</span><span>Hygiene-first practices</span><span>Quality beauty products</span><span>Personalized consultation</span><span>Comfortable environment</span><span>Transparent service pricing</span></div><a class="btn" href="#booking">Meet Your Beauty Team ↗</a></div>
+      </div>
+    </section>
+
+    <section class="section offer">
+      <div class="container offer-inner"><div><div class="eyebrow">A little treat for you</div><h2>Glow More. Spend <em>Less.</em></h2><p>Enjoy 20% off selected facial and hair-spa services on your first visit.</p></div><div class="offer-tag">20% OFF</div><a class="btn" href="#booking">Claim Your Offer ↗</a></div>
+    </section>
+
+    <section class="section section-light" id="packages">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Beauty Packages</div><h2>Choose your <em>glow plan</em></h2><p>Popular packages to make self-care simple. Final pricing may vary by service and consultation.</p></div>
+        <div class="pricing-grid">
+          <div class="price-card"><div class="package-photo"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=85" alt="Everyday beauty care" loading="lazy"></div><h3>Everyday Glow</h3><p>For your regular beauty routine</p><div class="price">₹1,499 <small>/ package</small></div><ul class="price-list"><li>Basic facial or clean-up</li><li>Eyebrow shaping</li><li>Manicure</li><li>Hair wash & styling</li></ul><a class="btn btn-outline" href="#booking">Choose Package</a></div>
+          <div class="price-card featured"><div class="package-photo"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=85" alt="Radiance facial package" loading="lazy"></div><div class="eyebrow">Most Loved</div><h3>Radiance Ritual</h3><p>A refreshing head-to-toe treat</p><div class="price">₹2,999 <small>/ package</small></div><ul class="price-list"><li>Premium glow facial</li><li>Hair spa treatment</li><li>Pedicure & manicure</li><li>Relaxing head massage</li></ul><a class="btn" href="#booking">Choose Package</a></div>
+          <div class="price-card"><div class="package-photo"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=800&q=85" alt="Bridal beauty package" loading="lazy"></div><h3>Bridal Elegance</h3><p>For your unforgettable moments</p><div class="price">From ₹9,999</div><ul class="price-list"><li>Bridal makeup consultation</li><li>Makeup & hairstyle</li><li>Pre-event skin prep</li><li>Customized bridal look</li></ul><a class="btn btn-outline" href="#booking">Enquire Now</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Our Beauty Studio</div><h2>A glimpse of the <em>Luxe touch</em></h2><p>Explore our salon inspiration and beauty moments. Replace these sample photos with your own work.</p></div>
+        <div class="gallery-grid">
+          <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=600&q=80" alt="Beauty makeup look">
+          <img src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=600&q=80" alt="Hair styling inspiration">
+          <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=600&q=80" alt="Beauty salon detail" onerror="this.src='https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80'">
+          <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=600&q=80" alt="Skincare treatment">
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="reviews">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Kind Words</div><h2>Our clients, <em>our pride</em></h2><p>Sample testimonials—replace these with genuine customer reviews.</p></div>
+        <div class="reviews-grid">
+          <article class="review"><div class="stars">★★★★★</div><p>“Such a relaxing experience! The team listened to what I wanted and my hair styling turned out beautiful.”</p><strong>— A happy client</strong></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Loved the bridal makeup consultation. Everything felt professional, comfortable and thoughtfully planned.”</p><strong>— Bridal client</strong></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“The facial was refreshing and the salon was clean and welcoming. I’ll definitely visit again.”</p><strong>— Regular visitor</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="booking">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Your Me-Time Starts Here</div><h2>Book your <em>appointment</em></h2><p>Tell us what you’re looking for. We’ll contact you to confirm your preferred slot.</p></div>
+        <div class="booking-grid">
+          <div class="booking-info"><div class="eyebrow">Visit Luxe Beauty Parlour</div><h2>We can’t wait<br><em>to welcome you.</em></h2><p>For bookings, bridal enquiries or service questions, reach out to our team.</p><div class="info-line"><b>📍 Address</b>Your salon address, City, State, India</div><div class="info-line"><b>☎ Phone / WhatsApp</b>+91 98765 43210</div><div class="info-line"><b>✉ Email</b>hello@luxebeauty.in</div><div class="info-line"><b>Opening Hours</b>Mon–Sun · 10:00 AM – 8:00 PM</div></div>
+          <form class="booking-form" id="bookingForm">
+            <div class="form-grid">
+              <div class="field"><label for="name">Your Name *</label><input id="name" name="name" required placeholder="Enter your full name"></div>
+              <div class="field"><label for="phone">Phone Number *</label><input id="phone" name="phone" required type="tel" pattern="[0-9+() -]{8,}" placeholder="+91 98765 43210"></div>
+              <div class="field"><label for="service">Choose Service *</label><select id="service" name="service" required><option value="">Select a service</option><option>Hair Styling & Care</option><option>Skin Care & Facials</option><option>Bridal Makeup</option><option>Nails & Manicure</option><option>Spa & Wellness</option><option>Waxing & Grooming</option><option>Beauty Package</option><option>Other / Consultation</option></select></div>
+              <div class="field"><label for="staff">Preferred Professional</label><select id="staff" name="staff"><option>No preference</option><option>Senior stylist</option><option>Makeup artist</option><option>Skin care specialist</option></select></div>
+              <div class="field"><label for="date">Preferred Date *</label><input id="date" name="date" type="date" required></div>
+              <div class="field"><label for="time">Preferred Time *</label><select id="time" name="time" required><option value="">Choose time</option><option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option><option>1:00 PM</option><option>2:00 PM</option><option>3:00 PM</option><option>4:00 PM</option><option>5:00 PM</option><option>6:00 PM</option><option>7:00 PM</option></select></div>
+              <div class="field full"><label for="message">Additional Notes</label><textarea id="message" name="message" placeholder="Any preferences, occasion or questions?"></textarea></div>
+            </div>
+            <button class="btn" type="submit">Request Appointment ↗</button>
+            <p style="font-size:11px;color:#897b6b;margin-top:12px">This demo form shows a confirmation message. Connect it to WhatsApp, email or a booking system to receive real requests.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Need to Know</div><h2>Frequently asked <em>questions</em></h2></div>
+        <div class="faq-list">
+          <details><summary>Do I need to book an appointment?</summary><p>Booking ahead is recommended, especially for bridal makeup and weekends. Walk-ins are welcome when slots are available.</p></details>
+          <details><summary>Can I request a particular beauty professional?</summary><p>Yes. Mention your preferred professional in the booking form and we’ll try to accommodate your request.</p></details>
+          <details><summary>Are bridal services customized?</summary><p>Yes. Bridal services begin with a consultation to discuss your event, preferences, timing and desired look.</p></details>
+          <details><summary>What is your cancellation policy?</summary><p>Please contact us at least 24 hours before your appointment if you need to reschedule or cancel.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <div class="contact-strip"><div class="container"><strong>Ready for your next beauty moment?</strong><a class="btn btn-outline" href="#booking" style="border-color:#24170a;color:#24170a">Book Your Appointment ↗</a></div></div>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div><a class="logo" href="#home"><span class="logo-mark">✧</span><span><strong>LUXE</strong><small>BEAUTY PARLOUR</small></span></a><p style="margin-top:18px;max-width:280px">A little luxury, a lot of care. Your beauty and comfort are at the heart of everything we do.</p></div>
+        <div><h4>Quick Links</h4><a href="#about">About Us</a><a href="#services">Services</a><a href="#packages">Packages</a><a href="#gallery">Gallery</a></div>
+        <div><h4>Popular Services</h4><a href="#services">Bridal Makeup</a><a href="#services">Hair Spa</a><a href="#services">Facials</a><a href="#services">Nail Art</a></div>
+        <div><h4>Get in Touch</h4><p>☎ +91 98765 43210</p><p>✉ hello@luxebeauty.in</p><p>📍 Your City, India</p><a href="#booking">Book an appointment →</a></div>
+      </div>
+      <div class="copyright"><span>© <span id="year"></span> Luxe Beauty Parlour. All rights reserved.</span><span>Made with care ✦</span></div>
+    </div>
+  </footer>
+  <div class="toast" id="toast" role="status"></div>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('show'));
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('show'));
+    });
+
+    // Prevent selecting a past date for appointments
+    const dateInput = document.getElementById('date');
+    const today = new Date();
+    const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().split('T')[0];
+    dateInput.min = localToday;
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('bookingForm');
+    const toast = document.getElementById('toast');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const customer = document.getElementById('name').value.trim();
+      const service = document.getElementById('service').value;
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+      toast.textContent = `Thank you, ${customer}! Your ${service} request for ${date} at ${time} is ready. Please connect this form to your salon WhatsApp/email to receive real bookings.`;
+      toast.style.display = 'block';
+      setTimeout(() => toast.style.display = 'none', 7000);
+      form.reset();
+      dateInput.min = localToday;
+    });
+  </script>
+</body>
+</html>
